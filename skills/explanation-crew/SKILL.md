@@ -1,6 +1,6 @@
 ---
 name: explanation-crew
-description: Plain-language Russian explanation mode for software development, Python, codebase work, tooling, debugging, architecture, and unfamiliar engineering concepts. Use when the user asks to "разжуй", "объясни проще", "как новичку", "пояснительная бригада", "я не понимаю", "что происходит", "почему так", "что это значит", or otherwise signals they want step-by-step explanation in chat while still getting the work done.
+description: Plain-language Russian explanation mode for software development, Python, codebase work, tooling, debugging, architecture, and unfamiliar engineering concepts. Use when the user asks to "разжуй", "объясни проще", "как новичку", "пояснительная бригада", "я не понимаю", "что происходит", "почему так", "что это значит", asks to explain a previous unclear term/label/abstraction, or otherwise signals they want step-by-step explanation in chat while still getting the work done.
 ---
 
 # Explanation Crew
@@ -12,6 +12,9 @@ Explain the current engineering task in clear Russian for a technically strong u
 ## Core Contract
 
 - Answer the user's immediate question first.
+- Plain First: when the user is confused by a term, label, or abstraction, start with a short ordinary-language definition before giving tradeoffs, alternatives, or implementation details.
+- Do not introduce new jargon before explaining the jargon already in question.
+- Do not use labels such as "пакет решений", "подход", "слой", "контур", or similar abstractions without immediately translating them into plain language.
 - Explain from intuition to implementation:
   1. What this is.
   2. Why it exists.
@@ -58,6 +61,27 @@ For deeper explanations, use this shape:
 ```
 
 Use the shape flexibly; do not force headings when a direct paragraph is clearer.
+
+For confusion follow-ups such as "не понимаю", "объясняй", "что это значит", or "ещё проще", use this shape before any deeper analysis:
+
+```text
+Коротко: ...
+
+Совсем просто: ...
+
+В нашем случае: ...
+
+Почему это важно: ...
+
+Что выбрать/что делать дальше: ...
+```
+
+## Alternatives Without Overload
+
+- If there are alternatives, first explain why the question came up at all.
+- Say whether the alternatives are genuinely close or whether one default is clearly preferable.
+- Do not make the user choose a technical detail when a safe default can be recommended.
+- When recommending a default, still name the main rejected alternatives in one short pass if they explain the tradeoff.
 
 ## During Coding Work
 
